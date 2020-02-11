@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>View My Events</title>
+    <link href="https://fonts.googleapis.com/css?family=Karla&display=swap" rel="stylesheet">    
+    <link rel="stylesheet" href="/stylesheets/style.css">
+    <link rel="shortcut icon" href="/checkmark.jpeg" type="image/x-icon">
+</head>
+<nav>
+        <a href="/profile">Home</a>
+        <a href="/about">About</a>
+    </nav>
+<body>
+    <div>
+    ${allCreatorEvents.length > 0 ? (
+        `<h1 class="text-center">EVENTS YOU'VE CREATED</h1>` +
+        allCreatorEvents.map(item => 
+        `
+        <div>
+            <form class="browse" method="POST" >
+                <input name="taskID" value="${item.task_id}" hidden>
+                        <div class="card-body">
+                            <h5 class="card-title">
+                                 ${item.event_name}
+                            </h5>
+                            <p class="card-text overflow-auto">
+                                <h5>
+                                    Location:
+                                </h5> 
+                                <p>
+                                    ${item.event_location}
+                                </p>
+                                <br>
+                                <h5>
+                                    Description:
+                                </h5> 
+                                    <input class="text-center"  contenteditable="false" value="${item.event_description}" disabled> 
+                                
+                            </p>
+                            <input type="submit"class="button" value='EDIT THIS EVENT'/>
+                </div>
+            </form>
+        </div>
+        <br>
+        `
+        ).join(''))
+        : ''
+    }
+</div>
+
+
+
+
+
+<div>
+    ${formatParticipantEventCards.length > 0 ? (
+        `<h1 class="text-center">EVENTS YOU'RE ATTENDING</h1>` +
+        formatParticipantEventCards.map(event => 
+        `
+            ${event.tasks.map(task => `
+                    <div>
+                        <form class="browse jonathan" method="POST">
+                            <h5 class="event-title">
+                                ${event.event_name}
+                            </h5>
+                            <h5>${task.task}</h5>
+
+        
+                            <input name="taskID" type="" value="${task.task_id}" hidden/>
+                            <br>
+                            <input class="button" type="submit" value="remove" hidden/>
+                        </form>
+                    </div>
+                     
+            ` ).join('')}
+            <br>
+        `).join(''))
+    : ''
+            
+    } 
+</div>
+ 
+
+
+
+</body>
+</html>
