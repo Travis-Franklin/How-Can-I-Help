@@ -1,3 +1,5 @@
+//Must require bcrypt in order to encrypt user's pw
+
 const db = require('./connection');
 const bcrypt = require('bcryptjs')
 
