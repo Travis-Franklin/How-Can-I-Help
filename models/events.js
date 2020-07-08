@@ -1,3 +1,7 @@
+//You must set up a const db to require a connection 
+//to the database throuugh connection.js
+
+
 const db = require('./connection');
 
 // --- LIST ALL EVENTS (Browse Events)
@@ -41,9 +45,6 @@ async function listCreatorEvents(userID){
     console.log(allCreatorEvents); 
     return allCreatorEvents;
 }
-
-
-
 
 
 // --- RETRIEVE USERS TASKS AND THEIR EVENTS(PARTICIPANT)
