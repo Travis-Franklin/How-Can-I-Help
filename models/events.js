@@ -63,38 +63,6 @@ async function listParticipantTasks(userID) {
     }
 }
 
-////// CATIE CODE
-// --- 
-// async function getTasksforUserID(userID) {
-//     try {
-//         const tasksForUser = await db.any(`select * from task_assignment where user_id=$2`, [userID]);
-//         console.log(`tasksForUser = ${tasksForUser}`)
-//         return tasksForUser;
-//     } catch (err) {
-//         console.log(err);
-//     }
-// }
-
-// // --- FORMAT USERS EVENT CARDS
-// async function formatParticipantEventCards(events) {
-//     const eventsWithTasks = await Promise.all(events.map(async (event) => {
-//         const tasks = await getTasksforUserID(tasks.user_id);
-        
-//         return {
-//           // a brand new object!
-      
-//           // but with all the stuff from the `event`
-//           ...event,
-      
-//           // attach the tasks
-//           tasks    
-//         };
-//       }));
-      
-//       return eventsWithTasks
-
-//     }
-// ------ END CODE -----
 
 // --- RETRIEVE EVENT TASK INFO (Browse Events)
 async function getAllTasksForUser(eventID, userID) {
